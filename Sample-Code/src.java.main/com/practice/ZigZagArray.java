@@ -4,12 +4,7 @@ public class ZigZagArray {
 	
 	public void zigzagArray(int arr[]){
 		for(int i=0;i<arr.length-1;i++){
-			if(i%2==0 && arr[i]>arr[i+1]){
-				arr[i] +=arr[i+1];
-				arr[i+1]=arr[i]-arr[i+1];
-				arr[i]=arr[i]-arr[i+1];
-			}
-			if(i%2!=0 && arr[i]<arr[i+1]){
+			if((i%2==0 && arr[i]>arr[i+1]) || (i%2!=0 && arr[i]<arr[i+1])){
 				arr[i] +=arr[i+1];
 				arr[i+1]=arr[i]-arr[i+1];
 				arr[i]=arr[i]-arr[i+1];
@@ -20,9 +15,8 @@ public class ZigZagArray {
 	}
 	
 	public static void main(String[] args) {
-		int arr[] = new int[]{2,1,3,3,4,5};
+		int arr[] = new int[]{1,2,8,3,4,5};
 		ZigZagArray z = new ZigZagArray();
 		z.zigzagArray(arr);
 	}
-
 }
