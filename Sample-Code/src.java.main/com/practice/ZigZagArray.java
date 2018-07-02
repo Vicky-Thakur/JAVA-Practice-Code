@@ -3,13 +3,13 @@ package com.practice;
 public class ZigZagArray {
 	
 	public void zigzagArray(int arr[]){
-		for(int i=1;i<arr.length;i=i+2){
-			if(arr[i-1]>arr[i]){
-				arr[i] +=arr[i-1];
-				arr[i-1]=arr[i]-arr[i-1];
-				arr[i]=arr[i]-arr[i-1];
+		for(int i=0;i<arr.length-1;i++){
+			if(i%2==0 && arr[i]>arr[i+1]){
+				arr[i] +=arr[i+1];
+				arr[i+1]=arr[i]-arr[i+1];
+				arr[i]=arr[i]-arr[i+1];
 			}
-			if(arr[i]<arr[i+1]){
+			if(i%2!=0 && arr[i]<arr[i+1]){
 				arr[i] +=arr[i+1];
 				arr[i+1]=arr[i]-arr[i+1];
 				arr[i]=arr[i]-arr[i+1];
