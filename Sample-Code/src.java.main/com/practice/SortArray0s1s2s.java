@@ -28,7 +28,8 @@ public class SortArray0s1s2s {
 				swap(arr, k, j);
 				j--;
 			}
-			k++;
+			if(arr[k]==1)
+				k++;
 		}
 	}
 	
@@ -37,7 +38,8 @@ public class SortArray0s1s2s {
 	//Count number of 0s, 1s and put 0s at begining ang then put 1s then put 2s
 	
 	public static void main(String[] args) {
-		int arr[] = new int[]{1,1,1,1,0,0,0,0};
+		int arr[] = new int[]{1,1,1,2,2,2,2,0,0,0,0};
+		int arr1[] = new int[]{2,2,2,0,0,0,1,1,1};
 		SortArray0s1s2s s = new SortArray0s1s2s();
 		s.sortArray(arr);
 		for(int i:arr)
