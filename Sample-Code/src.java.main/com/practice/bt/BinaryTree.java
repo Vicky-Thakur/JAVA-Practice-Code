@@ -2,6 +2,7 @@ package com.practice.bt;
 //
 import java.util.ArrayDeque;
 import java.util.Queue;
+import java.util.Scanner;
 
 class Node{
 	int value;
@@ -65,6 +66,49 @@ public class BinaryTree {
 		}
 	}
 	
+	//delete node 
+	public void delete(int key){
+		Queue<Node> queue = new ArrayDeque<Node>();
+		Node temp = null, keyNode = null;
+		queue.add(head);
+		while(!queue.isEmpty()){
+			temp = queue.poll();
+			if(temp.value == key)
+				keyNode = temp;
+			if(temp.l!=null)
+				queue.add(temp.l);
+			if(temp.r!=null)
+				queue.add(temp.r);
+		}
+		if(keyNode!=null){
+			keyNode.value = temp.value;
+			Node temp1 = null;
+			queue.add(head);
+			while(!queue.isEmpty()){
+				temp1 = queue.poll();
+				if(temp1.l!=null){
+					if(temp1.l==temp){
+						temp1.l=null;
+						return;
+					}else
+						queue.add(temp1.l);
+				}
+				if(temp1.r!=null){
+					if(temp1.r==temp){
+						temp1.r = null;
+						return;
+					}else
+						queue.add(temp1.r);
+				}
+			}
+		}
+		else{
+			System.out.print("Key not found");
+			return;
+		}
+	}
+	
+	//print preorder
 	public void print(Node temp){
 		if(temp==null)
 			return;
@@ -80,6 +124,13 @@ public class BinaryTree {
 		for(int i=1;i<15;i++){
 			bt1.insert(i);
 		}
+		bt1.print(bt1.head);
+		System.out.println();
+		Scanner scan = new Scanner(System.in);
+		System.out.println("Enter key to delete :");
+		int key = scan.nextInt();
+		scan.close();
+		bt1.delete(key);
 		bt1.print(bt1.head);
 	}
 }
