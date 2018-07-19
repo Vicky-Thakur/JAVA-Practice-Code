@@ -15,14 +15,14 @@ class Node{
 
 public class BinaryTree {
 
-	public Node head;
+	public Node root;
 	public BinaryTree() {
-		this.head = null;
+		this.root = null;
 	}
 	
 	//Insert in level order using BFS(recursion) 
 	public void insert(int key, Queue<Node> queue){
-		if(this.head!=null){
+		if(this.root!=null){
 			if(queue!=null){
 				Node temp = queue.poll();
 				if(temp.l==null)
@@ -36,20 +36,20 @@ public class BinaryTree {
 				}
 			}else{
 				queue =new ArrayDeque<Node>();
-				queue.offer(this.head);
+				queue.offer(this.root);
 				insert(key,queue);
 			}
 		}else
-			this.head = new Node(key);
+			this.root = new Node(key);
 	}
 	
 	//Insert in level order using BFS(iterative)
 	public void insert(int key){
-		if(this.head==null){
-			this.head = new Node(key);
+		if(this.root==null){
+			this.root = new Node(key);
 		}else{
 			Queue<Node> queue = new ArrayDeque<Node>();
-			queue.add(this.head);
+			queue.add(this.root);
 			while(!queue.isEmpty()){
 				Node temp = queue.poll();
 				if(temp.l==null){
@@ -70,7 +70,7 @@ public class BinaryTree {
 	public void delete(int key){
 		Queue<Node> queue = new ArrayDeque<Node>();
 		Node temp = null, keyNode = null;
-		queue.add(head);
+		queue.add(root);
 		while(!queue.isEmpty()){
 			temp = queue.poll();
 			if(temp.value == key)
@@ -83,7 +83,7 @@ public class BinaryTree {
 		if(keyNode!=null){
 			keyNode.value = temp.value;
 			Node temp1 = null;
-			queue.add(head);
+			queue.add(root);
 			while(!queue.isEmpty()){
 				temp1 = queue.poll();
 				if(temp1.l!=null){
@@ -113,7 +113,7 @@ public class BinaryTree {
 		if(temp==null)
 			return;
 		else{
-			System.out.print(temp.value);
+			System.out.print(temp.value + ",");
 			print(temp.l);
 			print(temp.r);
 		}
@@ -124,13 +124,13 @@ public class BinaryTree {
 		for(int i=1;i<15;i++){
 			bt1.insert(i);
 		}
-		bt1.print(bt1.head);
+		bt1.print(bt1.root);
 		System.out.println();
 		Scanner scan = new Scanner(System.in);
 		System.out.println("Enter key to delete :");
 		int key = scan.nextInt();
 		scan.close();
 		bt1.delete(key);
-		bt1.print(bt1.head);
+		bt1.print(bt1.root);
 	}
 }
