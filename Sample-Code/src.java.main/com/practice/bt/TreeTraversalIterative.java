@@ -5,8 +5,8 @@ import java.util.Stack;
 public class TreeTraversalIterative {
 	
 	public void inorder(Node temp){
-		if(temp==null)
-			return;
+		/*if(temp==null)  no need because while condition will handle this
+			return;*/
 		Stack<Node> stack = new Stack<Node>();
 		while(!stack.isEmpty() || temp!=null){
 			if(temp!=null){
@@ -35,8 +35,8 @@ public class TreeTraversalIterative {
 	}
 
 	public void postorder(Node temp){
-		if(temp==null)
-			return;
+		/*if(temp==null)  no need because while condition will handle this
+			return;*/
 		Stack<Node> stack = new Stack<Node>();
 		//first time stack is empty So temp!=null condition is required otherwise not required
 		while(!stack.isEmpty() || temp!=null){
