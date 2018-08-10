@@ -36,6 +36,15 @@ public class WordsAnagram {
 		
 	}
 	
+	public String wordSort(String word){
+		int alphaAscii[] = new int[26];
+		for(int i = 0;i<word.length();i++){
+			alphaAscii[word.charAt(i)] = 1; 
+		}
+		StringBuilder sortedWord = new StringBuilder();
+		for(int i =0;i<26;i)
+	}
+	
 	public static void main(String[] args) {
 		String wordArr[] = {"dog","hear","earh","god"};
 		
