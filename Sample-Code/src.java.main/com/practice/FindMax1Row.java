@@ -2,7 +2,7 @@ package com.practice;
 
 //Row wise Sorted matrix having only 0s, 1s
 //Find Row having maximum number of 1s
-//Git fetch Test1
+//Git fetch Test12
 public class FindMax1Row {
 
 	public int findRow(int matrix[][]){
