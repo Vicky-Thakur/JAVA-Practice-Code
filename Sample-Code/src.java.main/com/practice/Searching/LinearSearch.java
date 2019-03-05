@@ -1,3 +1,5 @@
+package com.practice.Searching;
+
 import java.util.Scanner;
 
 public class LinearSearch {
